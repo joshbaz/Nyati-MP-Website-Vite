@@ -4,18 +4,48 @@ import bgFilm from "../../1-Assets/images/Films/image16.svg";
 import { Typography } from "@mui/material";
 import { Box, Stack } from "@chakra-ui/react";
 import Buttons from "../../2-Components/Buttons/Buttons";
-const DetailHero = () => {
+const DetailHero = ({ filmData }) => {
+  const [backDropUrl, setBackdropUrl] = React.useState(null);
+
+  React.useEffect(() => {
+    if (
+      filmData?.Type.toLowerCase().includes("series") ||
+      (filmData?.Type.toLowerCase().includes("segment") &&
+        filmData?.Seasons?.length > 0)
+    ) {
+      console.log("hehhr");
+      if (
+        filmData?.Seasons[0].Episodes.length > 0 &&
+        filmData?.Seasons[0].Episodes[0].Backdrops.length > 0
+      ) {
+        let bklink = filmData?.Seasons[0].Episodes[0].Backdrops[0];
+        console.log("bklink", bklink);
+        setBackdropUrl(() => bklink);
+      }
+    } else {
+      if (
+        filmData?.Type.toLowerCase().includes("film") ||
+        (filmData?.Type.toLowerCase().includes("movie") &&
+          filmData?.Backdrops?.length > 0)
+      ) {
+        setBackdropUrl(() => filmData?.Backdrops[0]);
+      }
+    }
+  }, [filmData]);
+
   return (
     <HeroContent
       className={`flex flex-col h-screen w-screen bg-cover bg-no-repeat bg-fixed relative`}
-      style={{
-        backgroundImage: `linear-gradient(
-      180deg,
-      rgba(22, 21, 22, 0.65),
-      rgba(9, 7, 11, 0.987)
-    ),url(${bgFilm})`,
-      }}
     >
+      <img
+        src={backDropUrl ? backDropUrl : ""}
+        alt=""
+        className="flex absolute top-0 object-cover h-full w-full slect-none bg-gradient-to-b from-transparent to-secondary-700"
+        style={{
+          filter: "brightness(20%)", // Adjust brightness if needed
+        }}
+      />
+      <div className="flex absolute top-0 object-cover h-full w-full slect-none  bg-gradient-to-b from-transparent to-secondary-800" />
       <Box className="mx-auto h-screen px-16 py-32 flex items-center">
         <Box className="flex flex-col relative  h-screen w-screen ">
           <Box className="w-max absolute left-0 bottom-20">
@@ -24,27 +54,42 @@ const DetailHero = () => {
               className="flex flex-col  mx-auto max-w-3xl text-left md:max-w-full  lg:w-[500px] overflow-hidden"
             >
               <Typography className="font-[Inter-Bold] text-5xl text-whites-40 select-none">
-                Fair Play
+                {filmData?.Title}
               </Typography>
               <Typography className="font-[Inter-Regular] text-[#EEF1F4] text-base text-ellipsis select-none">
-                A group of young men become politically active when their
-                football pitch is taken by a private investor, aided by their
-                local councillor.
+                {filmData?.PlotSummary}
               </Typography>
+
+              {filmData?.Type.toLowerCase().includes("series") ||
+              filmData?.Type.toLowerCase().includes("segment") ? (
+                <div>
+                  {filmData?.Seasons?.length > 0 && (
+                    <Typography className="font-[Inter-Regular] text-[#EEF1F4] text-base text-ellipsis select-none">
+                      {filmData?.Seasons[0].SeasonTitle}
+                    </Typography>
+                  )}
+                </div>
+              ) : null}
 
               <Stack
                 direction="row"
                 className="flex flex-row items-start space-x-8 select-none"
               >
                 <Typography className="font-[Inter-Regular] text-[#FFFAF6] text-base">
-                  2010
+                  {filmData?.Year}
                 </Typography>
                 <ul className="font-[Inter-Regular] text-[#FFFAF6] flex list-disc w-full space-x-8 text-base flex-wrap gap-y-3 items-start justify-start">
-                  <li className="w-max">Film </li>
+                  <li className="w-max">{filmData?.Type} </li>
 
-                  <li className="w-max">Drama</li>
-
-                  <li className="w-max">Documentary</li>
+                  {filmData?.Genre?.length > 0 && (
+                    <>
+                      {filmData?.Genre?.map((data, index) => (
+                        <li key={index} className="w-max">
+                          {data}
+                        </li>
+                      ))}
+                    </>
+                  )}
                 </ul>
               </Stack>
 

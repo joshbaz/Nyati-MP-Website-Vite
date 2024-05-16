@@ -10,15 +10,17 @@ const FilmsDetailPage = () => {
   const [selectedFilm, setSelectedFilm] = React.useState(null);
 
   React.useEffect(() => {
-    setSelectedFilm(()=> FilmData[0])
-  },[FilmData])
+    setSelectedFilm(()=> FilmData[3])
+  }, [FilmData])
+  
 
+ 
   return (
     <Container className="w-full h-full relative flex-col space-y-0 bg-secondary-800">
       <WebNavigation />
 
       <Stack className="flex-col w-full h-full space-y-0">
-        <DetailHero />
+        <DetailHero filmData={selectedFilm}  />
         <div className="px-16">
           <DetailTabs filmData={selectedFilm} />
         </div>
