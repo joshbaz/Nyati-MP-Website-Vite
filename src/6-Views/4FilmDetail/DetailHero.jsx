@@ -13,7 +13,7 @@ const DetailHero = ({ filmData }) => {
       (filmData?.Type.toLowerCase().includes("segment") &&
         filmData?.Seasons?.length > 0)
     ) {
-      console.log("hehhr");
+      
       if (
         filmData?.Seasons[0].Episodes.length > 0 &&
         filmData?.Seasons[0].Episodes[0].Backdrops.length > 0
