@@ -4,15 +4,17 @@ import styled from "styled-components";
 import WebNavigation from "../../2-Components/Navigation/WebNavigation";
 import TheatresHero from "./TheatresHero";
 import TheatrePrograms from "./TheatrePrograms";
+import Footer from "../../2-Components/Footer/Footer";
 const ThreatresPage = () => {
   return (
-    <Container className="w-screen min-h-screen h-full relative flex-col space-y-0 bg-secondary-800">
+    <Container className="w-full min-h-screen h-full relative flex-col space-y-0 bg-secondary-800">
       <WebNavigation />
 
       <Stack direction={"column"} spacing={"0"} w="100%" h="100%">
         <TheatresHero />
         <TheatrePrograms />
       </Stack>
+      <Footer />
     </Container>
   );
 };

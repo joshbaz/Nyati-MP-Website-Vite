@@ -10,8 +10,8 @@ const TheatresHero = () => {
           direction="row"
           className="flex px-[2%] flex-wrap gap-0 items-center justify-center mx-auto"
         >
-          <Box className="w-full h-full object-fill">
-            <img src={TicketImag} alt={""} />
+          <Box className="w-full h-full">
+            <img src={TicketImag} className="w-full h-full object-fill" alt={""} />
           </Box>
         </Stack>
       </Box>

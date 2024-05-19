@@ -53,6 +53,7 @@ const WebNavigation = () => {
         <div className="hidden lg:flex">
           <ActionButton
             as={"button"}
+            onClick={() => routeNavigate("/auth/signin")}
             className="font-[Roboto-Medium] text-lg text-whites-40"
           >
             <span>Sign In</span>
