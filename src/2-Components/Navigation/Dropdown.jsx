@@ -17,7 +17,7 @@ const Dropdown = ({ submenus, dropdown }) => {
               to={data.url}
               className={({ isActive }) =>
                 isActive
-                  ? "flex items-center px-6 h-full w-full bg-primary-500 font-[Inter-SemiBold] text-sm capitalize lg:text-base"
+                  ? "flex items-center px-6 h-full w-full bg-primary-100 font-[Inter-SemiBold] text-sm capitalize lg:text-base"
                   : "flex items-center px-6 h-full w-full border-b-2 border-b-transparent font-[Inter-Regular] text-sm lg:text-base hover:bg-secondary-200 capitalize text-whites-50"
               }
             >

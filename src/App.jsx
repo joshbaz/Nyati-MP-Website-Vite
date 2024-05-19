@@ -11,6 +11,7 @@ import FilmsDetailPage from './6-Views/4FilmDetail/FilmsDetailPage.jsx';
 import ThreatresPage from './6-Views/7InTheatres/ThreatresPage.jsx';
 import AboutPage from './6-Views/8About/AboutPage.jsx';
 import PressPage from './6-Views/9Press/PressPage.jsx';
+import ContactUsPage from './6-Views/10ContactUs/ContactUsPage.jsx';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/about/about-nyati" element={<AboutPage />} />
             <Route path="/about/press" element={<PressPage />} />
+            <Route path="/about/contactus" element={<ContactUsPage />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

@@ -1,9 +1,83 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
+import { Stack, Box } from "@chakra-ui/react";
 
 const ContactUsDetails = () => {
   return (
-    <div>ContactUsDetails</div>
-  )
-}
+    <Container className="w-full bg-[#141118] py-16 px-12 lg:px-[86px] overflow-hidden">
+      <Box className="max-w-[1240px] mx-auto grid md:grid-cols-1 md:gap-10 lg:gap-16 lg:max-w-[1240px] xl:gap-24 items-start">
+        <Stack spacing={"20px"}>
+          <h1
+            className="text-[#FFFAF6] opacity-[100%] text-[32px] text-center capitalize font-[Inter-SemiBold]"
+            
+          >
+            For more information <span className="block"> contact us</span>{" "}
+          </h1>
 
-export default ContactUsDetails
+          <Stack
+            direction="column"
+            spacing={"20px"}
+            className="items-center text-center"
+          >
+            <Stack
+              spacing={"0"}
+              className="text-[#F2F2F2] opacity-[80%] text-[17px]"
+            >
+              <h5
+                className="text-[#F2F2F2] opacity-[80%] text-[18px] font-[Inter-Medium]"
+                
+              >
+                Call
+              </h5>
+              <p>+256 778 787 660</p>
+              <p>+256 702 074337</p>
+            </Stack>
+            <Stack
+              spacing={"0"}
+              className="text-[#F2F2F2] opacity-[80%] text-[17px]"
+            >
+              <h5
+                className="text-[#F2F2F2] opacity-[80%] text-[18px] font-[Inter-Medium]"
+                
+              >
+                Whatsapp
+              </h5>
+              <p>+256 791 896 110</p>
+            </Stack>
+            <Stack
+              spacing={"0"}
+              className="text-[#F2F2F2] opacity-[80%] text-[17px]"
+            >
+              <p>P.o Box 74733, Kampala</p>
+            </Stack>
+            <Stack
+              spacing={"0"}
+              className="text-[#F2F2F2] opacity-[80%] text-[17px]"
+            >
+              <h5
+                className="text-[#F2F2F2] opacity-[80%] text-[18px] font-[Inter-Medium]"
+                
+              >
+                E-mail:
+              </h5>
+              <p className="font-[Inter-Medium]">
+                info@nyatimotionpictures.com
+              </p>
+              <p className="font-[Inter-Medium]" >
+                nyatimotionpictures@gmail.com
+              </p>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Box>
+    </Container>
+  );
+};
+
+export default ContactUsDetails;
+
+const Container = styled.section`
+  min-height: 54vh;
+
+  background-size: cover;
+`;
