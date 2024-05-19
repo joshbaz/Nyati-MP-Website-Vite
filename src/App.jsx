@@ -16,7 +16,8 @@ import ErrorPage from './6-Views/0OtherPages/ErrorPage.jsx';
 import NoMatch from './6-Views/0OtherPages/NoMatch.jsx';
 import SignIn from './6-Views/1Auth/SignIn.jsx';
 import Register from './6-Views/1Auth/Register.jsx';
-
+import Verification from './6-Views/1Auth/Verification.jsx';
+import RegisteredSuccess from './6-Views/1Auth/RegisteredSuccess'
 
 function App() {
   let theme = React.useMemo(()=>createTheme(themeSettings),[])
@@ -72,6 +73,24 @@ function App() {
             <Route
               path="/auth/register"
               element={<Register />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/auth/reset"
+              element={<Verification />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/auth/verify"
+              element={<Verification />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/auth/success"
+              element={<RegisteredSuccess />}
               errorElement={<ErrorPage />}
             />
             <Route path="*" element={<NoMatch />} />

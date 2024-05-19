@@ -1339,6 +1339,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/hugeicons@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify-json/hugeicons/-/hugeicons-1.1.0.tgz#76ed8e7db2bd5e141e84169fa0c2babae64bb340"
+  integrity sha512-MzzShBJQsOB92kzPMBe2dI35m0BrR7Z7yEQ0Al84ULQ46PRAAu+RBkqmTzqY+T2uBB1PeGe8sPs+8lGRXClGjg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/ic@^1.1.17":
   version "1.1.17"
   resolved "https://registry.yarnpkg.com/@iconify-json/ic/-/ic-1.1.17.tgz#d1676582fccb45cfbc5e3dd0e100b2ec974c13c9"

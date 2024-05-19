@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@iconify-json/bx": "^1.1.10",
+    "@iconify-json/hugeicons": "^1.1.0",
     "@iconify-json/ic": "^1.1.17",
     "@iconify-json/ion": "^1.1.18",
     "@iconify-json/solar": "^1.1.9",

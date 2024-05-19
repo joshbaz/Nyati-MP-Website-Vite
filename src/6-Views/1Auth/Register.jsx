@@ -7,8 +7,10 @@ import Logo from "../../1-Assets/logos/Logo.svg";
 import HeroBg from "../../1-Assets/Hero2.svg";
 import { Box, Stack } from "@chakra-ui/react";
 import Footer from "../../2-Components/Footer/Footer";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    let routeNavigate = useNavigate()
      const initialValues = {
        email: "",
        fullname: "",
@@ -64,7 +66,7 @@ const Register = () => {
                       </h1>
                       <p className="text-[#F2F2F2] text-[14px] text-center select-none font-[Inter-Regular]">
                         Enter your account details below or{" "}
-                        <span className="text-[#ED3F62] underline underline-offset-2 cursor-pointer font-[Inter-SemiBold]">
+                        <span onClick={()=> routeNavigate("/auth/signin")} className="text-[#ED3F62] underline underline-offset-2 cursor-pointer font-[Inter-SemiBold]">
                           Sign in
                         </span>
                       </p>

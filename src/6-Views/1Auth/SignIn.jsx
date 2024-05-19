@@ -11,16 +11,16 @@ import Buttons from "../../2-Components/Buttons/Buttons";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-    let routeNavigate = useNavigate()
-    const initialValues = {
-      username: "",
-      password: "",
-    };
+  let routeNavigate = useNavigate();
+  const initialValues = {
+    username: "",
+    password: "",
+  };
 
-    const validationSchema = yup.object().shape({
-      username: yup.string().required("required"),
-      password: yup.string().required("required"),
-    });
+  const validationSchema = yup.object().shape({
+    username: yup.string().required("required"),
+    password: yup.string().required("required"),
+  });
   return (
     <Container>
       <Stack direction="column" spacing={"0"} w="100%" h="100%">
@@ -64,7 +64,10 @@ const SignIn = () => {
                       </h1>
                       <p className="text-[#F2F2F2] text-[14px] text-center select-none font-[Inter-Regular]">
                         Login below or{" "}
-                        <span onClick={()=> routeNavigate("/auth/register")} className="text-[#ED3F62] underline underline-offset-2 cursor-pointer font-[Inter-SemiBold]">
+                        <span
+                          onClick={() => routeNavigate("/auth/register")}
+                          className="text-[#ED3F62] underline underline-offset-2 cursor-pointer font-[Inter-SemiBold]"
+                        >
                           create an account
                         </span>
                       </p>
@@ -114,16 +117,17 @@ const SignIn = () => {
                     {/** form buttons */}
                     <Stack spacing="18px">
                       <Buttons
+                        type="submit"
                         onClick={handleSubmit}
-                        as="button"
+                        
                         className="block w-full rounded-full border border-[#EE5170] bg-[#EE5170] px-12 py-3 text-sm font-medium text-whites-40 text-[14.35px] hover:bg-transparent hover:text-white focus:outline-none  active:text-opacity-75 sm:w-auto lg:px-16 font-[Inter-SemiBold] otline-none"
                       >
                         Sign In
                       </Buttons>
 
                       <Box
-                        as="button"
-                        className="mx-auto w-max text-[#ED3F62] underline underline-offset-4 text-[14.35px] hover:opacity-70 font-[Inter-SemiBold]"
+                        onClick={()=> routeNavigate("/auth/reset")}
+                        className="mx-auto w-max text-[#ED3F62] underline underline-offset-4 text-[14.35px] hover:opacity-70 font-[Inter-SemiBold] cursor-pointer"
                       >
                         Forgot Password
                       </Box>
@@ -169,7 +173,7 @@ const FormContainer = styled(Box)`
     background: #36323e;
     border: 1px solid rgba(238, 241, 244, 0.3);
     border-radius: 6px;
-  
+
     text-indent: 10px;
   }
 `;
@@ -182,4 +186,3 @@ const ImageContainer = styled(Stack)`
     height: 100%;
   }
 `;
-
