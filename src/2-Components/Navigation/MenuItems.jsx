@@ -45,7 +45,7 @@ const MenuItems = ({ item }) => {
           <NavLink
             role="button"
             className={({ isActive }) =>
-              isActive && location.pathname.includes(item.url)
+              isActive && location.pathname.includes(item.path)
                 ? "flex items-center text-whites-40 px-4 py-3 xl:px-6 xl:py-4 border-b-2 border-b-primary-500 font-[Inter-SemiBold] text-sm lg:text-base xl:text-base  capitalize"
                 : "flex items-center text-whites-40 px-4 py-3 xl:px-6 xl:py-4 border-b-2 border-b-transparent font-[Inter-Regular] text-sm lg:text-base xl:text-base hover:border-b-primary-500 capitalize"
             }

@@ -19,7 +19,7 @@ const DetailHero = ({ filmData }) => {
         filmData?.Seasons[0].Episodes[0].Backdrops.length > 0
       ) {
         let bklink = filmData?.Seasons[0].Episodes[0].Backdrops[0];
-        console.log("bklink", bklink);
+        
         setBackdropUrl(() => bklink);
       }
     } else {

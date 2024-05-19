@@ -1,0 +1,117 @@
+[
+    {
+        "directory":"nyat-streams/website/Universal",
+        "desc":"the conent stored here is for the whole website",
+        "content":[
+            {
+                "type":"Favicon",
+                "desc":"favicons",
+                "files":[
+                        "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/Favicon/Favicon%20256.svg",
+                        "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/Favicon/Favicon%2032.svg"
+                ]
+            },
+            {
+                "type":"Images",
+                "desc":"images",
+                "files":[
+                    "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/Images/CTA_%20Download%20app%20image.png",
+                    "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/Images/CTA_%20Image%20placeholder.png",
+                    "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/Images/CTA_%20posters.png",
+                    "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/Images/Main-backdrop.png"
+                ]
+            },
+            {
+                "type":"AppButtons",
+                "desc":"images",
+                "files":[
+                       "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/AppButtons/App%20Store.svg",
+                       "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/Universal/AppButtons/Google%20Play.svg"
+                ]
+            }
+        ]
+
+    },
+    {
+        "directory":"nyat-streams/website/PageFilm",
+        "desc":"the content is for the film page",
+        "content":[
+            {
+                "type":"slider",
+                "desc":"slider images for the films page",
+                "files":[
+                   {
+                    "desc":"Slider-1",
+                    "imgs":[
+                      {
+                        "type":"Web",
+                        "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Web/Web%20slider-1.png"
+                      },
+                      {
+                        "type":"Mobile",
+                        "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Mobile/Mobile%20slider-1.png"
+                      }
+                    ]
+                   },
+                   {
+                    "desc":"Slider-2",
+                    "imgs":[
+                        {
+                            "type":"Web",
+                            "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Web/Web%20slider-2.png"
+                          },
+                          {
+                            "type":"Mobile",
+                            "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Mobile/Mobile%20slider-2.png"
+                          }
+                    ]
+                   },
+                   {
+                    "desc":"Slider-3",
+                    "imgs":[
+                        {
+                            "type":"Web",
+                            "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Web/Web%20slider-3.png"
+                          },
+                          {
+                            "type":"Mobile",
+                            "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Mobile/Mobile%20slider-3.png"
+                          }
+                    ]
+                   },
+                   {
+                    "desc":"Slider-4",
+                    "imgs":[
+                        {
+                            "type":"Web",
+                            "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Web/Web%20slider-4.png"
+                          },
+                          {
+                            "type":"Mobile",
+                            "link":"https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageFilm/slider/Mobile/Mobile%20slider-4.png"
+                          }
+                    ]
+                   }
+                ]
+            }
+        ]
+
+    },
+    {
+        "directory":"nyat-streams/website/PageAbout",
+        "desc":"the conent stored is for the about section",
+        "content":[
+            {
+                "type":"About company",
+                "desc":"images for the company page",
+                "files":[
+                   "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageAbout/Company/Logo.svg",
+                   "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageAbout/Company/image%2010.png",
+                   "https://nyat-streams.fra1.cdn.digitaloceanspaces.com/website/PageAbout/Company/image%209.png"
+                ]
+            }
+        ]
+
+    }
+
+]

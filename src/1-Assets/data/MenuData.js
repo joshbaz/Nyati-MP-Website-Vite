@@ -9,7 +9,7 @@ export const MENUDATA = [
   },
   {
     title: "In Theatres",
-    path: "/theatres",
+    path: "/intheatres",
   },
 
   {
@@ -31,9 +31,11 @@ export const MENUDATA = [
       },
     ],
   },
-  {
-    title:"Events",
-    path: "/events",
-  },
+ 
   
 ];
+
+//  {
+//     title:"Events",
+//     path: "/events",
+//   },

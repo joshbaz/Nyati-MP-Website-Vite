@@ -11,7 +11,7 @@ const Dropdown = ({ submenus, dropdown }) => {
     >
       {submenus.map((data, index) => {
         return (
-          <li key={index} className="h-[40px] w-full">
+          <li key={index} className="h-[40px] w-full ">
             <NavLink
               role="button"
               to={data.url}

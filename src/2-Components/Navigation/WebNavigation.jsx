@@ -32,7 +32,7 @@ const WebNavigation = () => {
 
   window.addEventListener("scroll", navSolidChange);
   return (
-    <NavContainer className="absolute items-center h-[85px] w-full mx-auto px-5 lg:px-14 z-10">
+    <NavContainer className="absolute items-center h-[85px] w-full mx-auto px-5 lg:px-14 z-50">
       <CustomStack className="w-full h-full justify-between items-center max-w-[1280px] mx-auto overflow-hidden">
         {/** menu logo & items */}
         <CustomStack className="bg-transparent space-x-20 items-center">
