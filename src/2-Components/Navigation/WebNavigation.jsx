@@ -1,18 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CustomStack from "../Stacks/CustomStack";
-import {
-  Typography,
-} from "@mui/material";
-import { MENUDATA } from "../../1-Assets/data/MenuData";
+import { Button, Typography } from "@mui/material";
+import { MENUDATA, MENULOGIN } from "../../1-Assets/data/MenuData";
 import Logo from "../../1-Assets/logos/Logo.svg";
 import MenuItems from "./MenuItems";
 import Buttons from "../Buttons/Buttons.tsx";
 import MobileItems from "./MobileItems.jsx";
-const WebNavigation = () => {
+import { Avatar, Wrap, WrapItem } from "@chakra-ui/react";
+import UserDropdown from "./UserDropdown.jsx";
+
+const WebNavigation = ({ isLoggedIn }) => {
   const [nav, setNav] = React.useState(false);
   const [navSolid, setNavSolid] = React.useState(false);
+  const [dropDown, setDropDown] = React.useState(false);
+  let ref = React.useRef();
 
   let routeNavigate = useNavigate();
   const handleNav = () => {
@@ -31,6 +34,25 @@ const WebNavigation = () => {
   };
 
   window.addEventListener("scroll", navSolidChange);
+
+  React.useEffect(() => {
+    const handler = (event) => {
+      if (dropDown && ref.current && !ref.current.contains(event.target)) {
+        setDropDown(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    document.addEventListener("touchstart", handler);
+
+    return () => {
+      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("touchstart", handler);
+    };
+  }, [dropDown]);
+
+  const onMouseClick = () => {
+    setDropDown(!dropDown);
+  };
   return (
     <NavContainer className="absolute items-center h-[85px] w-full mx-auto px-5 lg:px-14 z-50">
       <CustomStack className="w-full h-full justify-between items-center max-w-[1280px] mx-auto overflow-hidden">
@@ -43,22 +65,64 @@ const WebNavigation = () => {
             <img src={Logo} alt="" className="w-full h-full" />
           </div>
 
-          <ul className="hidden lg:flex w-full space-x-5 h-[60%]">
-            {MENUDATA.map((data, index) => {
-              return <MenuItems key={index} item={data} />;
-            })}
-          </ul>
+          {isLoggedIn ? (
+            <ul className="hidden lg:flex w-full space-x-5 h-[60%]">
+              {MENULOGIN.map((data, index) => {
+                return <MenuItems key={index} item={data} />;
+              })}
+            </ul>
+          ) : (
+            <ul className="hidden lg:flex w-full space-x-5 h-[60%]">
+              {MENUDATA.map((data, index) => {
+                return <MenuItems key={index} item={data} />;
+              })}
+            </ul>
+          )}
         </CustomStack>
         {/** menu action button */}
-        <div className="hidden lg:flex">
-          <ActionButton
-            as={"button"}
-            onClick={() => routeNavigate("/auth/signin")}
-            className="font-[Roboto-Medium] text-lg text-whites-40"
-          >
-            <span>Sign In</span>
-          </ActionButton>
-        </div>
+        {isLoggedIn ? (
+          <div className="hidden lg:flex lg:space-x-2 lg:items-center lg:h-full">
+            <Buttons variant="ghost" className="h-10">
+              <span className="icon-[solar--magnifer-linear] h-6 w-6 text-whites-40"></span>
+            </Buttons>
+
+            <Wrap>
+              <WrapItem>
+                <Avatar
+                  name="Joshua Kimbareeba"
+                  src=""
+                  className="bg-primary-500 rounded-full p-3 w-10 h-10 font-[Inter-Bold] select-none cursor-pointer"
+                  size="md"
+                />
+              </WrapItem>
+            </Wrap>
+            <div className="block z-50 space-y-3">
+              <div ref={ref} onClick={onMouseClick} className="relative h-max">
+                <Buttons
+                  variant="ghost"
+                  className="w-10 h-10 rounded-full px-0 hover:bg-whites-40 text-whites-40 hover:text-secondary-800 hover:bg-opacity-70"
+                >
+                  <span className="icon-[solar--alt-arrow-down-linear] h-7 w-7"></span>
+                </Buttons>
+              </div>
+              
+              <UserDropdown dropdown={dropDown} />
+              
+              
+            </div>
+          </div>
+        ) : (
+          <div className="hidden lg:flex">
+            <ActionButton
+              as={"button"}
+              onClick={() => routeNavigate("/auth/signin")}
+              className="font-[Roboto-Medium] text-lg text-whites-40"
+            >
+              <span>Sign In</span>
+            </ActionButton>
+          </div>
+        )}
+
         {/** Mobile hanburger */}
 
         <Buttons
@@ -83,26 +147,49 @@ const WebNavigation = () => {
         >
           <div className="flex flex-col items-center justify-start h-screen space-y-2 pb-4 overflow-hidden">
             <div className="h-10"></div>
-            <ul className="w-[80%] flex flex-col items-center justify-around align-middle h-[80%]">
-              {MENUDATA.map((data, index) => {
-                return <MobileItems key={index} item={data} />;
-              })}
-            </ul>
-            <div className="h-max w-[80%] flex items-center justify-center  mb-[0%] select-none">
-              <div className="flex flex-col w-full items-center space-y-3">
-                <Buttons className="rounded-full w-full max-w-[300px] py-3 ">
-                  <Typography className="font-[Sans-Bold] text-md">
-                    Contact us
-                  </Typography>
-                </Buttons>
-                <MobileButton
-                  as={"button"}
-                  className="rounded-full w-full max-w-[300px] py-4 font-[Sans-Bold] text-md"
-                >
-                  <span>Sign In</span>
-                </MobileButton>
+
+            {isLoggedIn ? (
+              <ul className="w-[80%] flex flex-col items-center justify-around align-middle h-[80%]">
+                {MENULOGIN.map((data, index) => {
+                  return <MobileItems key={index} item={data} />;
+                })}
+              </ul>
+            ) : (
+              <ul className="w-[80%] flex flex-col items-center justify-around align-middle h-[80%]">
+                {MENUDATA.map((data, index) => {
+                  return <MobileItems key={index} item={data} />;
+                })}
+              </ul>
+            )}
+
+            {isLoggedIn ? (
+              <div className="h-max w-[80%] flex items-center justify-center  mb-[0%] select-none">
+                <div className="flex flex-col w-full items-center space-y-3">
+                  <MobileButton
+                    as={"button"}
+                    className="rounded-full w-full max-w-[300px] py-4 font-[Sans-Bold] text-md"
+                  >
+                    <span>Sign Out</span>
+                  </MobileButton>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="h-max w-[80%] flex items-center justify-center  mb-[0%] select-none">
+                <div className="flex flex-col w-full items-center space-y-3">
+                  <Buttons className="rounded-full w-full max-w-[300px] py-3 ">
+                    <Typography className="font-[Sans-Bold] text-md">
+                      Contact us
+                    </Typography>
+                  </Buttons>
+                  <MobileButton
+                    as={"button"}
+                    className="rounded-full w-full max-w-[300px] py-4 font-[Sans-Bold] text-md"
+                  >
+                    <span>Sign In</span>
+                  </MobileButton>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </CustomStack>
@@ -163,7 +250,6 @@ const MobileButton = styled.div`
   border-radius: 100px;
   border: 1px solid #fffffe;
   height: 40px;
- 
 
   color: #ffffff;
   cursor: pointer;

@@ -3,7 +3,7 @@ import { Typography } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 import FooterWatch from "../Footer/FooterWatch";
-const ContentTab = ({filmdata}) => {
+const ContentTab = ({ filmdata, loggedIn }) => {
   return (
     <Container>
       <Stack direction="column" spacing={"12px"}>
@@ -149,7 +149,11 @@ const ContentTab = ({filmdata}) => {
           </Stack>
         )}
       </Stack>
-      <FooterWatch />
+
+      {!loggedIn && (
+         <FooterWatch />
+      )}
+     
     </Container>
   );
 };

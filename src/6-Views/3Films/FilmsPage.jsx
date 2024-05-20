@@ -13,7 +13,7 @@ const FilmsPage = () => {
     <Container className="space-y-0 flex-col relative w-full h-full">
       <WebNavigation />
 
-      <CustomStack className="flex-col w-full height-full">
+      <CustomStack className="flex-col w-full h-full">
         <FilmsHero />
         <FilmsWatchList />
         <Advert />

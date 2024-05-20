@@ -31,11 +31,42 @@ export const MENUDATA = [
       },
     ],
   },
- 
-  
 ];
 
 //  {
 //     title:"Events",
 //     path: "/events",
 //   },
+
+export const MENULOGIN = [
+  {
+    title: "All",
+    path: "/browse",
+  },
+  {
+    title: "Movies",
+    path: "/browse/genre/movies",
+  },
+  {
+    title: "TV Shows",
+    path: "/browse/genre/shows",
+  },
+
+  {
+    title: "My List",
+    subItems: true,
+    path: "/mylist",
+    subData: [
+      {
+        title: "Watchlist",
+        url: "/mylist/watchlist",
+      },
+      {
+        title: "Purchases & Rentals",
+        url: "/mylist/purchases&rentals",
+      },
+    ],
+  },
+];
+
+

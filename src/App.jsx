@@ -18,6 +18,8 @@ import SignIn from './6-Views/1Auth/SignIn.jsx';
 import Register from './6-Views/1Auth/Register.jsx';
 import Verification from './6-Views/1Auth/Verification.jsx';
 import RegisteredSuccess from './6-Views/1Auth/RegisteredSuccess'
+import UserHome from './6-Views/11UserViews/1UserHome/UserHome.jsx';
+import UFilmDetailPage from './6-Views/11UserViews/2UserViewFilm/UFilmDetailPage.jsx';
 
 function App() {
   let theme = React.useMemo(()=>createTheme(themeSettings),[])
@@ -93,6 +95,19 @@ function App() {
               element={<RegisteredSuccess />}
               errorElement={<ErrorPage />}
             />
+
+            <Route
+              path="/browse"
+              element={<UserHome />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/ufilm/:hfdfh"
+              element={<UFilmDetailPage />}
+              errorElement={<ErrorPage />}
+            />
+
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </ThemeProvider>
