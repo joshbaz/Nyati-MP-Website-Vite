@@ -20,6 +20,9 @@ import Verification from './6-Views/1Auth/Verification.jsx';
 import RegisteredSuccess from './6-Views/1Auth/RegisteredSuccess'
 import UserHome from './6-Views/11UserViews/1UserHome/UserHome.jsx';
 import UFilmDetailPage from './6-Views/11UserViews/2UserViewFilm/UFilmDetailPage.jsx';
+import UWatchFilm from './6-Views/11UserViews/3UserWatchFilm/UWatchFilm.jsx';
+import UWatchList from './6-Views/11UserViews/4UserWatchList/UWatchList.jsx';
+import UPurchaseList from './6-Views/11UserViews/5UserPurchases/UPurchaseList.jsx';
 
 function App() {
   let theme = React.useMemo(()=>createTheme(themeSettings),[])
@@ -105,6 +108,29 @@ function App() {
             <Route
               path="/ufilm/:hfdfh"
               element={<UFilmDetailPage />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/ufilm/:hfdfh/watch"
+              element={<UWatchFilm />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/mylist"
+              element={<UWatchList />}
+              errorElement={<ErrorPage />}
+            />
+            <Route
+              path="/mylist/watchlist"
+              element={<UWatchList />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/mylist/purchases&rentals"
+              element={<UPurchaseList />}
               errorElement={<ErrorPage />}
             />
 
