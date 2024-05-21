@@ -23,6 +23,8 @@ import UFilmDetailPage from './6-Views/11UserViews/2UserViewFilm/UFilmDetailPage
 import UWatchFilm from './6-Views/11UserViews/3UserWatchFilm/UWatchFilm.jsx';
 import UWatchList from './6-Views/11UserViews/4UserWatchList/UWatchList.jsx';
 import UPurchaseList from './6-Views/11UserViews/5UserPurchases/UPurchaseList.jsx';
+import YourAccountPage from './6-Views/11UserViews/6UAccountSettings/YourAccountPage.jsx';
+import UViewActivity from './6-Views/11UserViews/7UActivity/UViewActivity.jsx';
 
 function App() {
   let theme = React.useMemo(()=>createTheme(themeSettings),[])
@@ -131,6 +133,18 @@ function App() {
             <Route
               path="/mylist/purchases&rentals"
               element={<UPurchaseList />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/account"
+              element={<YourAccountPage />}
+              errorElement={<ErrorPage />}
+            />
+
+            <Route
+              path="/settings/activity"
+              element={<UViewActivity />}
               errorElement={<ErrorPage />}
             />
 
